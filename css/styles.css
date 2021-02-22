@@ -1,0 +1,95 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 100vh;
+
+  flex-direction: column;
+}
+
+form {
+  display: flex;
+}
+
+.autocomplete {
+  position: relative;
+}
+
+.list-container {
+  position: absolute;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 5px;
+
+  border: 1px solid #d4d4d4;
+  border-top: none;
+  padding: 0;
+
+  background-color: #fff;
+}
+
+.list-item {
+  padding: 5px;
+  cursor: pointer;
+
+  transition: 0.2s ease;
+}
+
+.list-item:hover {
+  background-color: rgba(128, 128, 128, 0.2);
+}
+
+.spinner {
+  display: block;
+  border: 3px solid #d4d4d4;
+  border-bottom: 3px solid transparent;
+  border-radius: 50%;
+
+  animation-name: spin;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+.input-loader {
+  position: absolute;
+  right: 2px;
+  top: 2px;
+  width: 8px;
+  height: 8px;
+}
+
+.loader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 100vh;
+  background-color: rgba(1, 1, 1, 0.5);
+}
+
+.loader .spinner {
+  width: 20px;
+  height: 20px;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}

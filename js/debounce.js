@@ -1,16 +1,17 @@
+//вызов функции пока не прошло ms времени
 export default function debounce(func, ms) {
 
-    let isRady = true;
+    let timeout;
 
     return function (...rest) {
-        if (!isRady) {
-            return
+        function later() {
+            clearTimeout(timeout);
+
+             func(...rest);
         }
 
-        isRady = false;
+        clearTimeout(timeout);
 
-        func(...rest);
-
-        setTimeout(() => isRady = true, ms);
+        timeout = setTimeout(later,  ms);
     }
 }
